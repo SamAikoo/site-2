@@ -1,0 +1,324 @@
+
+$main-color:#333;
+
+html {
+  font-size: 100%;
+}
+body {
+  color:$main-color;
+  font-size: 0.9rem;
+  min-height: 100vh;
+  position: relative;
+}
+a {
+  color: $main-color;
+  text-decoration: none;
+  transition: all .5s;
+  &:hover{
+    opacity: .7;
+  }
+}
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+
+/* 共通クラス */
+.wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.content {
+  padding-top: 120px;
+  padding-bottom: 160px;
+}
+.site-title a {
+  width: 180px;
+  line-height: 1px;
+  display: block;
+}
+.page-title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+/* ヘッダー */
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10
+}
+
+/* ハンバーガーメニュー */
+.navi {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  color: #fff;
+  padding: 36px 50px;
+  transition: all 0.5s;
+  z-index: 20;
+  opacity: 0;
+  
+  a {
+    color:#fff;
+  }
+  li {
+    margin-bottom: 14px;
+  }
+}
+
+/* トグルボタン */
+.toggle_btn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 20;
+
+  span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: $main-color;
+    border-radius: 4px;
+    transition: all .5s;
+
+    &:nth-child(1){
+      top: 10px;
+    }
+    &:nth-child(2){
+      bottom: 10px;
+    }
+  }
+}
+
+/* マスク */
+.mask {
+  display: none;
+  transition: all 0.5s;
+}
+
+/* ハンバーガーメニューを開いたとき */
+.open {
+  .navi {
+    left: 0;
+    opacity: 1;
+  }
+  .toggle_btn {
+    span {
+      background-color: #fff;
+
+      &:nth-child(1) {
+        -webkit-transform: translateY(4px) rotate(-45deg);
+        transform: translateY(4px) rotate(-45deg);
+      }
+      &:nth-child(2) {
+        -webkit-transform: translateY(-4px) rotate(45deg);
+        transform: translateY(-4px) rotate(45deg);
+      }
+    }
+  }
+  .mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 10;
+    cursor: pointer;
+  }
+}
+
+/* TOP PRODUCT */
+.top {
+  padding-top: 80px;
+  padding-bottom: 160px;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    width: 23%;
+    margin-bottom: 40px;
+  }
+  img {
+    margin-bottom: 10px;
+    vertical-align: top;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    
+  }
+  p {
+    font-size: 0.75rem;
+  }
+}
+.link-text {
+  display: block;
+  text-align: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  li {
+    padding: 0 20px;
+  }
+}
+/* ITEM */
+.item {
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+
+  .item-text {
+    width: 42%;
+
+    p {
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+    dl {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    dt {
+      width: 30%;
+    }
+    dd {
+      width: 70%;
+    }
+  }
+  .item-img {
+    width: 50%;
+  }
+  img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+
+/* ABOUT */
+.about {
+  max-width: 600px;
+
+  p {
+    line-height: 1.9;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+/* COMPANY */
+.company {
+  max-width: 600px;
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  dt {
+    width: 30%;
+    border-bottom: solid 1px #dcdbdb;
+    padding: 20px 10px;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  dd {
+    width: 70%;
+    border-bottom: solid 1px #dcdbdb;
+    padding: 20px 10px;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  .map {
+    filter: grayscale(1);
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+  }
+}
+
+/* フッター */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+
+  .menu {
+    display: flex;
+
+    li {
+      font-size: 0.75rem;
+      margin-right: 30px;
+    }
+  }
+  .copyright {
+    font-size: 0.625rem;
+  } 
+}
+
+@media screen and (max-width:900px){
+  .product-list {
+    li {
+      width: 46%;
+    }
+  }
+  .item {
+    display: block;
+    margin: 0 auto;
+
+    .item-text {
+      width: 100%;
+      margin-bottom: 56px;
+    }  
+    .item-img {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+  .footer{
+    display: block;
+  }
+  .copyright {
+    margin-top: 8px;
+  } 
+}
+
+
+
